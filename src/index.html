@@ -10,14 +10,17 @@
 
 <body>
     <div id="map"></div>
-    <div id="buttons">
+    <div id="button1">
         <input onclick="populateMap('bath');"; type=button value="Bathrooms">
+    </div>
+    <div id="button2">
         <input onclick="populateMap('drink');" type=button value="Water Fountains">
     </div>
     <div id="list"></div>
+    
     <script type="text/javascript" src="markers.js"></script>
     <script>
-        var map, infoWindow, currentWindow;
+        var map, infowindow, currentWindow;
         var waterMarkers = [];
         var bathMarkers = [];
         var waterMarkersVisible = false;
@@ -45,7 +48,6 @@
                         lng: position.coords.longitude
                     };
 
-                    infoWindow.setPosition(userLoc);
                     addMarker({
                         coords: userLoc,
                         iconImage: {
@@ -53,10 +55,11 @@
                             scaledSize: new google.maps.Size(50,50)
                         }
                     });
-
-                    // var buttons = document.getElementById('buttons');
-                    // addButton(buttons, "drink");
-                    // addButton(buttons, "bath");
+                    // infoWindow.setPosition(userLoc);
+                    // infoWindow.setContent('Location found.');
+                    // infoWindow.open(map);
+                    map.setCenter(userLoc);
+                    
                 }, function() {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -140,7 +143,7 @@
                 if (docList.childNodes.length > 0) {
                     docList.removeChild(docList.firstChild);
                 }
-                docList.appendChild(makeOL(waterMarkers));
+                docList.appendChild(makeUL(waterMarkers));
             }
             else if (type == "bath") {
                 if (bathMarkers.length) {
@@ -173,7 +176,7 @@
                 if (docList.childNodes.length > 0) {
                     docList.removeChild(docList.firstChild);
                 }
-                docList.appendChild(makeOL(bathMarkers));
+                docList.appendChild(makeUL(bathMarkers));
             }
         }
 
@@ -198,9 +201,9 @@
         // Takes in a sorted array of [Marker, distance] pairs and returns an html
         // ordered list of (Marker.Title : Distance) values.
         // Taken from https://stackoverflow.com/questions/11128700/create-a-ul-and-fill-it-based-on-a-passed-array
-        function makeOL(sorted) {
+        function makeUL(sorted) {
             // Create the list element:
-            var list = document.createElement('ol');
+            var list = document.createElement('ul');
             var nearestAmount = 5;
 
             for (var i = 0; i < nearestAmount; i++) {
