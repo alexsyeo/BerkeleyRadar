@@ -4,7 +4,7 @@ body{
     grid-template-columns: 6fr 2fr 2fr;
     grid-template-rows: 2fr 8fr;
     /* grid-auto-rows:minmax(100px, auto); */
-    grid-gap:1em;
+    grid-gap:3em;
 }
 
 #map{
@@ -30,36 +30,44 @@ body{
 
 #button1 input{
     padding: 10px 10px;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 25%;
     margin-top: 20px;
+    margin-right: 2em;
     grid-column: 2;
     border: 2px solid brown;
 }
 
 #button2 input{
     padding: 10px 10px;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 25%;
     margin-top: 20px;
+    margin-right: 2em;
     grid-column: 3;
     border: 2px solid blue;
 }
 
 #list{
-    /* margin-top: 50px; */
     grid-column:2/-1;
     grid-row:2;
     text-align: center;
+    margin-right: 50px;
 }
 
 ul{
     list-style: none;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-bottom: 25px;
 }
 
 ul li{
     /* display: inline-block; */
     font-family: "Trebuchet MS", Helvetica, sans-serif;
     margin-top: 30px;
+    font-size: 30px;
     /* white-space: initial; */
 }
