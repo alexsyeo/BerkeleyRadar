@@ -1,0 +1,2 @@
+class Bathroom < Marker
+end

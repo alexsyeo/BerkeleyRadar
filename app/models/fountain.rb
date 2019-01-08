@@ -1,0 +1,2 @@
+class Fountain < Marker
+end

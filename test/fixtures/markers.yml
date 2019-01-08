@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coord_lat: 1
+  coord_lng: 1
+  content: MyString
+  title: MyString
+  type: 
+
+two:
+  coord_lat: 1
+  coord_lng: 1
+  content: MyString
+  title: MyString
+  type: 
