@@ -1,0 +1,73 @@
+body{
+    /* height: 100%; */
+    display:grid;
+    grid-template-columns: 6fr 2fr 2fr;
+    grid-template-rows: 2fr 8fr;
+    /* grid-auto-rows:minmax(100px, auto); */
+    grid-gap:3em;
+}
+
+#map{
+    /* width: 60% ; */
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 90vh;
+    /* height: 500px; */
+    float: left;
+    grid-column: 1;
+    grid-row: 1/-1;
+}
+
+#button1{
+    position: relative;
+    text-align: center;
+}
+
+#button2{
+    position: relative;
+    text-align: center;
+}
+
+#button1 input{
+    padding: 10px 10px;
+    font-size: 25px;
+    border-radius: 25%;
+    margin-top: 20px;
+    margin-right: 2em;
+    grid-column: 2;
+    border: 2px solid brown;
+}
+
+#button2 input{
+    padding: 10px 10px;
+    font-size: 25px;
+    border-radius: 25%;
+    margin-top: 20px;
+    margin-right: 2em;
+    grid-column: 3;
+    border: 2px solid blue;
+}
+
+#list{
+    grid-column:2/-1;
+    grid-row:2;
+    text-align: center;
+    margin-right: 50px;
+}
+
+ul{
+    list-style: none;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    padding-right: 20px;
+    padding-bottom: 25px;
+}
+
+ul li{
+    /* display: inline-block; */
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    margin-top: 30px;
+    font-size: 30px;
+    /* white-space: initial; */
+}
