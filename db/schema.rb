@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_01_08_220224) do
 
   create_table "markers", force: :cascade do |t|
-    t.integer "coord_lat"
-    t.integer "coord_lng"
+    t.decimal "coord_lat"
+    t.decimal "coord_lng"
     t.string "content"
     t.string "title"
     t.string "type"

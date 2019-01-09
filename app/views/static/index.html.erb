@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Google Maps</title>
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     </div>
     <div id="list"></div>
     
-    <script type="text/javascript" src="markers.js"></script>
+    <!-- <script type="text/javascript" src="markers.js"></script> -->
     <script>
         var map, infowindow, currentWindow;
         var waterMarkers = [];
@@ -88,8 +88,12 @@
         // Add Marker Function
         function addMarker(props){
             // Add marker
+            var coords = props.coords;
+            coords.lat = parseFloat(props.coords.lat);
+            coords.lng = parseFloat(props.coords.lng);
+
             var marker = new google.maps.Marker({
-                position: props.coords,
+                position: coords,
                 map: map,
                 animation: google.maps.Animation.DROP
             });
@@ -127,6 +131,8 @@
                     }
                 } else {
                     // The waterMarkers array is empty, so we add the markers.
+                    var waterFountainMarkers = <%= @fountains %>;
+                    
                     for (var i = 0; i < waterFountainMarkers.length; i++) {
                         var marker = addMarker(waterFountainMarkers[i]);
                         waterMarkers.push([marker, getDistance(marker.getPosition().toJSON(), userLoc)]);
@@ -158,7 +164,9 @@
                         showMarkers(bathMarkers);
                     }
                 } else {
-                    // The waterMarkers array is empty, so we add the markers.
+                    // The bathroomMarkers array is empty, so we add the markers.
+                    var bathroomMarkers = <%= @bathrooms %>;
+
                     for (var i = 0; i < bathroomMarkers.length; i++) {
                         var marker = addMarker(bathroomMarkers[i]);
                         bathMarkers.push([marker, getDistance(marker.getPosition().toJSON(), userLoc)]);
